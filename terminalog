@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require_relative 'lib/termina_log'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usages: ./terminalog ACCESS_LOG_FILENAME [options]\n" +
+                "\ttail -f ACCESS_LOG_FILENAME | ./terminalog [options]\n\n"
+
+  opts.on('-h', '--help', 'Prints this help')                                            { |v| puts opts; exit }
+  opts.on('-i', '--hits NUMBER', 'Hits alert threshold (default: 10000)')                { |v| options[:hits_alert_threshold] = v }
+  opts.on('-t', '--threshold SECONDS', 'Access log retention threshold (default: 120s)') { |v| options[:threshold] = v }
+  opts.on('-s', '--screen SECONDS', 'Maximum screen refresh (default: 1s)')              { |v| options[:screen_refresh] = v }
+end.parse!
+
+TerminaLog.new(options).start
