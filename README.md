@@ -1,4 +1,4 @@
-# HTTP log monitoring console program - Raphaël DAGUENET
+# HTTP log monitoring console program
 
 ## Requirements
 
@@ -81,7 +81,5 @@ Statistics and alerts are currently hardcoded. A better production ready design 
 ## Contact
 
 Please let me know if you run into any trouble to run this program or if you have any question about it.
-
-raphael.daguenet@gmail.com
 
 Thank you
